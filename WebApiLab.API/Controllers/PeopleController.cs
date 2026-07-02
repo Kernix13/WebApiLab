@@ -23,14 +23,14 @@ public class PeopleController : ControllerBase
         }
     }
 
-    // GET: api/people
+    // GET: api/People
     [HttpGet]
     public ActionResult<List<Person>> GetAll()
     {
         return Ok(People);
     }
 
-    // GET: api/people/{id}
+    // GET: api/People/{id}
     [HttpGet("{id}")]
     public ActionResult<Person> GetPerson(string id)
     {
@@ -41,5 +41,35 @@ public class PeopleController : ControllerBase
             return NotFound();
         }
         return Ok(person);
+    }
+
+    // POST: api/People
+    [HttpPost]
+    public IActionResult CreatePerson(Person newPerson)
+    {
+        // For now, bounce back the data with a 201 Created status
+        return CreatedAtAction(nameof(GetPerson), new { id = newPerson.Id }, newPerson);
+    }
+
+    // Having trouble with this - do I need Services?
+    // PUT: api/People/{id}
+    [HttpPut("{id}")]
+    public IActionResult UpdatePerson(string id, Person updatedPerson)
+    {
+        return NoContent();
+    }
+
+    // DELETE: api/People/{id}
+    [HttpDelete("{id}")]
+    public IActionResult DeletePerson(string id)
+    {
+        var person = People.FirstOrDefault(p => p.Id == id);
+        if (person == null)
+        {
+            return NotFound();
+        }
+
+        People.Remove(person);
+        return NoContent();
     }
 }

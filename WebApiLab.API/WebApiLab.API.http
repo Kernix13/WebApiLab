@@ -1,9 +1,38 @@
 @WebApiLab_API_HostAddress = http://localhost:5195
 
-GET {{WebApiLab_API_HostAddress}}/people
+GET {{WebApiLab_API_HostAddress}}/api/People
 Accept: application/json
 
 ###
 
-GET {{WebApiLab_API_HostAddress}}/api/People/V59OF92YF627HFY0
+GET {{WebApiLab_API_HostAddress}}/api/People/ENTOCR13RSCLZ6KU
 Accept: application/json
+
+###
+
+POST {{WebApiLab_API_HostAddress}}/api/People
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "language": "English",
+  "id": "ENTOCR13RSCLZ6KU",
+  "bio": "Add something here later.",
+    "version": 3.14
+}
+
+###
+
+PUT {{WebApiLab_API_HostAddress}}/api/People/V59OF92YF627HFY0
+Content-Type: application/json
+
+{
+    "name": "Adeel Solangi",
+    "language": "Sindhi",
+    "id": "V59OF92YF627HFY0",
+    "bio": "Get rid of the latin.",
+    "version": 6.2
+}
+
+### 
+DELETE {{WebApiLab_API_HostAddress}}/api/People/ENTOCR13RSCLZ6KU
