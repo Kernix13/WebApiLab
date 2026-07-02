@@ -4,3 +4,6 @@ GET {{WebApiLab_API_HostAddress}}/people
 Accept: application/json
 
 ###
+
+GET {{WebApiLab_API_HostAddress}}/api/People/V59OF92YF627HFY0
+Accept: application/json
