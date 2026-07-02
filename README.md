@@ -50,3 +50,5 @@ Swagger shows that Id needs to be an integer but it is defined as a string every
 DAmn, in GetPerson I had `id` as an `int` so I changed it to `string` but I'm still getting the same error
 
 <img src="./swagger-screenshot.png">
+
+> NOTE: I have to redo this because I forgot to stop and restart the API server when I switched id from `int` to `string` - it works now
