@@ -33,10 +33,9 @@ public class PeopleController : ControllerBase
 
     // GET: api/people/{id}
     [HttpGet("{id}")]
-    public ActionResult<Person> GetPerson(int id)
+    public ActionResult<Person> GetPerson(string id)
     {
-        // var person = People.FirstOrDefault(p => p.Id == id);
-        var person = People.FirstOrDefault(p => p.Id == id.ToString());
+        var person = People.FirstOrDefault(p => p.Id == id);
         if (person == null)
         {
             return NotFound();

@@ -29,7 +29,7 @@ else
 
 HttpResponseMessage singleResponse = await client.GetAsync("/api/People/XU7BX2F8M5PVZ1EF");
 // I think response should be singleResponse here, not response. Otherwise, it will always be true because the first response was successful.
-if (response.IsSuccessStatusCode)
+if (singleResponse.IsSuccessStatusCode)
 {
     string jsonResponse = await singleResponse.Content.ReadAsStringAsync();
 
@@ -38,7 +38,9 @@ if (response.IsSuccessStatusCode)
         new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
     );
     // I'm not getting Name or Language or Version. I think the problem is that the property names in the JSON response don't match the property names in the Person class. I need to check the JSON response and make sure that the property names match.
-    // 🚫 Swagger shows this error: For 'id': Value must be an integer. But it is defined as a string in the Person class. I need to change the type of Id to int in the Person class.
+    // 🚫 Swagger shows this error on the page:
+    //      For 'id': Value must be an integer. 
+    // But it is defined as a string in the Person class. I need to change the type of Id to int in the Person class.
 
     Console.WriteLine($"NAME: {person.Name} speaks {person.Language} {person.Version} {person.Id}");
 }
