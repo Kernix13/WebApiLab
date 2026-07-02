@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -20,6 +21,8 @@ app.MapGet(pattern: "/people", handler: () => jsonData)
     .WithName(endpointName: "GetPeople")
     .WithOpenApi()
     .Produces<List<Person>>(statusCode: StatusCodes.Status200OK);
+
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
