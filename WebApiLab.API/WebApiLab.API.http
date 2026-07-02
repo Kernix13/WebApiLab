@@ -1,6 +1,6 @@
-@WebApiLab.API_HostAddress = http://localhost:5195
+@WebApiLab_API_HostAddress = http://localhost:5195
 
-GET {{WebApiLab.API_HostAddress}}/weatherforecast/
+GET {{WebApiLab_API_HostAddress}}/people
 Accept: application/json
 
 ###
