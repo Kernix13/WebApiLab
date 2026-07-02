@@ -1,6 +1,0 @@
-@HostAddress = http://localhost:5185
-
-GET {{HostAddress}}/people
-Accept: application/json
-
-###

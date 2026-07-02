@@ -28,27 +28,3 @@ else
     Console.WriteLine(await singleResponse.Content.ReadAsStringAsync());
 }
 ```
-
-- NOTE: I tried different Id values
-- I added `-----------` as a separator for the console output.
-- When I have `if (response.IsSuccessStatusCode)` I get `NAME:  speaks  0`
-  - I added _NAME:_ because all that was printing was "speaks"
-- I think `response` should be `singleResponse` but when I change it I get the following error:
-
-```
-Error: BadRequest
-{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1",
-"title":"One or more validation errors occurred.",
-"status":400,
-"errors":{
-    "id":["The value 'XU7BX2F8M5PVZ1EF' is not valid."]},
-"traceId":"00-509154f22ad1305c1d49a633d35b4243-5969de8df5376023-00"}
-```
-
-Swagger shows that Id needs to be an integer but it is defined as a string everywhere?!?
-
-DAmn, in GetPerson I had `id` as an `int` so I changed it to `string` but I'm still getting the same error
-
-<img src="./swagger-screenshot.png">
-
-> NOTE: I have to redo this because I forgot to stop and restart the API server when I switched id from `int` to `string` - it works now

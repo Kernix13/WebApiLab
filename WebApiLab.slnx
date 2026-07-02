@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="WebApiLab.API/WebApiLab.API.csproj" />
-  <Project Path="WebApiLab.Console/WebApiLab.Console.csproj" />
-</Solution>
