@@ -27,9 +27,9 @@ else
     Console.WriteLine(await response.Content.ReadAsStringAsync());
 }
 
-HttpResponseMessage singleResponse = await client.GetAsync("/api/People/XU7BX2F8M5PVZ1EF");
+HttpResponseMessage singleResponse = await client.GetAsync("/api/People/V59OF92YF627HFY0");
 // I think response should be singleResponse here, not response. Otherwise, it will always be true because the first response was successful.
-if (singleResponse.IsSuccessStatusCode)
+if (response.IsSuccessStatusCode)
 {
     string jsonResponse = await singleResponse.Content.ReadAsStringAsync();
 
