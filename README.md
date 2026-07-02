@@ -3,3 +3,11 @@
 Creation of a .NET solution that contains at web API and a console application that consumes data from the API
 
 > This is all I have for this README at this time.
+
+> ### Why does my API port number keep changing?!?
+
+Lock down the port # by stop using IIS Express and use the native .NET server profile instead.
+
+- Navigate into your WebApiLab.API folder and run `dotnet run --launch-profile http`
+
+This link is showing the data: `http://localhost:5195/api/People`
