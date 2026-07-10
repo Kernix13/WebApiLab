@@ -337,12 +337,61 @@ if (response.IsSuccessStatusCode)
 
 #### Shell commands
 
--
+```sh
+npm create vite@latest
+# Wrong, do this:
+npm create vite@latest
+# For project name, use WebApiLab.Web
+# For package name, use webapilab-web
+# choose ESLint
+
+# or this
+npx create-vite@latest WebApiLab.Web
+
+npm install
+npm run dev
+```
 
 #### Notes
 
--
+- the fix for the CORS error is bad - it configures your API to accept requests from any origin
 
 #### Code
 
--
+```jsx
+// in App.jsx
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:5195/api/People');
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchData();
+}, []);
+```
+
+```cs
+// in API Program.cs
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+app.UseCors();
+```

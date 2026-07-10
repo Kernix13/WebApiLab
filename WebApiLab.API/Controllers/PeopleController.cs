@@ -35,7 +35,6 @@ public class PeopleController : ControllerBase
     public ActionResult<Person> GetPerson(string id)
     {
         var person = People.FirstOrDefault(p => p.Id == id);
-        // var person = People.FirstOrDefault(p => p.Id == id.ToString());
         if (person == null)
         {
             return NotFound();
