@@ -5,6 +5,7 @@ HttpClient client = new HttpClient();
 
 client.BaseAddress = new Uri("http://localhost:5195");
 
+// Get all people
 // HttpResponseMessage response = await client.GetAsync("/people");
 HttpResponseMessage response = await client.GetAsync("/api/People");
 
@@ -27,6 +28,7 @@ else
     Console.WriteLine(await response.Content.ReadAsStringAsync());
 }
 
+// Get person by Id
 HttpResponseMessage singleResponse = await client.GetAsync("/api/People/V59OF92YF627HFY0");
 // I think response should be singleResponse here, not response. Otherwise, it will always be true because the first response was successful.
 if (response.IsSuccessStatusCode)

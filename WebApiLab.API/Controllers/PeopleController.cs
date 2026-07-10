@@ -47,7 +47,7 @@ public class PeopleController : ControllerBase
     [HttpPost]
     public IActionResult CreatePerson(Person newPerson)
     {
-        // For now, bounce back the data with a 201 Created status
+        // Send back the data with a 201 Created status
         return CreatedAtAction(nameof(GetPerson), new { id = newPerson.Id }, newPerson);
     }
 
